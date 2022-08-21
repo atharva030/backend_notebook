@@ -18,11 +18,13 @@
   app.use('/api/notes',require('./routes/notes'))
     
   mongoose.connect(mongoURL,connectionParams).then(()=>{
-      console.info("connected")
+    console.info("connected")
   }).catch((error)=>{
       console.log("Error: ",error)
   });
-
+  app.get("/", (req, res) => {
+    res.status(200).send("Hello server is running").end();
+  });
 
   app.listen(PORT || 5000, () => {
     // console.log(`Example app listening on port ${port}`)
