@@ -17,7 +17,7 @@
   app.use('/api/auth',require('./routes/auth'))
   app.use('/api/notes',require('./routes/notes'))
     
-  mongoose.connect("mongoURL",connectionParams).then(()=>{
+  mongoose.connect(mongoURL,connectionParams).then(()=>{
       console.info("connected")
   }).catch((error)=>{
       console.log("Error: ",error)
