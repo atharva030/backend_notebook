@@ -1,10 +1,11 @@
+  require("dotenv").config();
   const express=require('express')
   var cors=require('cors')
   const mongoose=require('mongoose');
-  const mongoURI="mongodb+srv://atharva_030:Pankhuri@mycluster.abdbwyo.mongodb.net/?retryWrites=true&w=majority"
+  const mongoURL=process.env.MONGO_URL
 
   const app = express()
-  const port = 80 || process.env.PORT
+  let PORT = process.env.PORT;
   const connectionParams={
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -15,13 +16,13 @@
   app.use('/api/auth',require('./routes/auth'))
   app.use('/api/notes',require('./routes/notes'))
     
-  mongoose.connect(mongoURI,connectionParams).then(()=>{
+  mongoose.connect(mongoURL,connectionParams).then(()=>{
       console.info("connected")
   }).catch((error)=>{
       console.log("Error: ",error)
   });
 
 
-  app.listen(port, () => {
+  app.listen(PORT || 5000, () => {
     console.log(`Example app listening on port ${port}`)
   })
