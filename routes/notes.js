@@ -5,10 +5,10 @@ const Note = require("../models/Note");
 const { body, validationResult } = require("express-validator");
 
 //ROUTE 1: Get all the notes using: GET "/api/notes/fetchallnotes"  require auth i.e. login required
-// router.get("/fetchallnotes", fetchuser, async (req, res) => {
-//   const notes = await Note.find({ user: req.user.id }); //fetching all notes
-//   res.json(notes);
-// });
+router.get("/fetchallnotes", fetchuser, async (req, res) => {
+  const notes = await Note.find({ user: req.user.id }); //fetching all notes
+  res.json(notes);
+});
 
 //ROUTE 2: Add a new notes using POST: GET "/api/notes/addnote"  require auth i.e. login required
 router.post("/addnote",
