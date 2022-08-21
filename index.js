@@ -24,5 +24,5 @@
 
 
   app.listen(PORT || 5000, () => {
-    console.log(`Example app listening on port ${port}`)
+    // console.log(`Example app listening on port ${port}`)
   })
