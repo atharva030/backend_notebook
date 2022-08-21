@@ -4,7 +4,7 @@
   const mongoURI="mongodb+srv://atharva_030:Pankhuri@mycluster.abdbwyo.mongodb.net/?retryWrites=true&w=majority"
 
   const app = express()
-  const port = 5000 || process.env.PORT
+  const port = 80 || process.env.PORT
   const connectionParams={
     useNewUrlParser:true,
     useUnifiedTopology:true
